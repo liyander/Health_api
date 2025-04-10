@@ -16,6 +16,9 @@ const profileRoutes = require('./routes/profiles');
 const medicalRecordRoutes = require('./routes/medicalRecords');
 const medicationRoutes = require('./routes/medications');
 const vitalSignsRoutes = require('./routes/vitalSigns');
+const glucoseReadingRoutes = require('./routes/glucoseReadings');
+const foodIntakeRoutes = require('./routes/foodIntake');
+const insulinRecordRoutes = require('./routes/insulinRecords');
 
 // Middleware
 app.use(cors());
@@ -43,9 +46,12 @@ app.get('/', (req, res) => {
         version: '1.0.0',
         endpoints: {
             profiles: '/api/profiles',
-            medicalRecords: '/api/medical-records',
-            medications: '/api/medications',
-            vitalSigns: '/api/vital-signs'
+        medicalRecords: '/api/medical-records',
+        medications: '/api/medications',
+        vitalSigns: '/api/vital-signs',
+        glucoseReadings: '/api/glucose-readings',
+        foodIntake: '/api/food-intake',
+        insulinRecords: '/api/insulin-records'
         }
     });
 });
@@ -55,6 +61,9 @@ app.use('/api/profiles', profileRoutes);
 app.use('/api/medical-records', medicalRecordRoutes);
 app.use('/api/medications', medicationRoutes);
 app.use('/api/vital-signs', vitalSignsRoutes);
+app.use('/api/glucose-readings', glucoseReadingRoutes);
+app.use('/api/food-intake', foodIntakeRoutes);
+app.use('/api/insulin-records', insulinRecordRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
