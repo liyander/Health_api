@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const ProfileSchema = new Schema({
-  user: { type: Schema.Types.ObjectId, ref: 'User', required: true, unique: true },
+  username: { type: String, required: true },
   dateOfBirth: { type: Date, required: true },
   height: { type: Number, min: 0 },
   weight: { type: Number, min: 0 },
